@@ -1,0 +1,67 @@
+\documentclass{article}
+
+\usepackage{times}
+\usepackage{enumitem}
+
+\title{File Explorer Document}
+\author{Ali Haisam Muhammad Rafid\\1405013}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	\newenvironment{class}{\begin{description}[font = \bfseries \ttfamily]}{\end{description}}
+	\newenvironment{method}{\begin{description}[font = \normalfont \ttfamily]}{\end{description}}
+	\section*{Classes}
+	\begin{class}
+		\item[ i) Controller] \hfill \break
+		This class is a controller of the fxml file that we generated from the scene builder. A controller class processes all the elements added in scene builder before calling the method initialize.
+		\begin{method}
+			\item[1.public void initialize(URL location, ResourceBundle resources)] A overridden method from the class Initializable. This method is called to initialize the controller class after its root element has been completely processed.
+			\item[2.private void setFileTableView(FileInfo fileInfo)] ~\\This method is used to populate the table with child of FileInfo class which is passed as the parameter.
+			\item[3.private void setFileTilesView(FileInfo fileInfo)] ~\\This method is used to populate the TilePane with child of FileInfo class which is passed as the parameter.
+			\item[4.private void makeTree()] ~\\This method is used to construct the tree from root.
+			\item[5.private void setTableColumns()] ~\\Used to set up the table attributes that should be shown from the class FileInfo.
+			\item[6.private void setTableAction()] ~\\Sets the action that should be done when a element in the table is double clicked. 
+			\item[7.private void setTilesAction(FileInfo fileInfo, VBox vBox)] Sets the action that should be done when a element in the tile view is double clicked.
+			\item[8.private void setTreeAction()] ~\\Sets the action that should be done when a tree element is double clicked. 
+			\item[9.public ObservableList<FileInfo> getChildFiles(FileInfo file)] Gets the list of children of the file.
+		\end{method}
+		\item[ii) FileInfo] \hfill \break
+		This class stores all the informations about a file including a list of child files.
+		\begin{method}
+			\item[1.public FileInfo(String fileAbsolutePath)] ~\\Constructor which only sets the absolute path. Used to make the fake root of the tree.
+			\item[2.public FileInfo(File file)] ~\\Constructor
+			\item[3.public String getFileAbsolutePath()]
+			\item[4.public void setFileAbsolutePath(String fileAbsolutePath)]
+			\item[5.public File getFile()]
+			\item[6.public void setFile(File file)]
+			\item[7.public String getFileName()]
+			\item[8.public void setFileName(String fileName)]
+			\item[9.public String getFileModifiedDate()]
+			\item[10.public void setFileModifiedDate(String fileModifiedDate)]
+			\item[11.public long getFileSize()]
+			\item[12.public void setFileSize(long fileSize)]
+			\item[13.public void setChildFiles(ObservableList<FileInfo> childFiles)]
+			\item[14.public ObservableList<FileInfo> getChildFiles()]
+			\item[15.public ImageView getFileImage()]
+			\item[16.public void setFileImage(ImageView fileImage)]
+			\item[17.public String toString()] ~\\Overridden method to get the string while constructing tree.
+			\item[Methods 3-16 are getter and setter methods which are self describing]
+		\end{method}
+	\end{class}
+	
+	\section*{Design Patterns}
+	\begin{description}
+		\item[1.Composite Pattern:] \hfill \break
+		\begin{description}
+			\item[FileInfo:] This class contains a list of its own type.
+			\item[TreeItem:] This class also contains a list of TreeItem types.
+		\end{description}
+		~\\
+		\item[2.Adapter Pattern:] \hfill \break
+		\begin{description}
+			\item[VBox:] We cannot add an image to a TilePane by itself. So we add the image and file name to a VBox type object and add to the TilePane.
+			\item[Image:] We use this class type object to make a image used in Java Swing compatible for use in JavaFX.
+		\end{description}
+	\end{description}	
+\end{document}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FileExplorerPackage.Controller">
+   <children>
+      <TabPane layoutX="171.0" layoutY="29.0" prefHeight="419.0" prefWidth="598.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Table View">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="fileTableView" layoutX="-3.0" layoutY="1.0" prefHeight="396.0" prefWidth="591.0">
+                          <columns>
+                            <TableColumn fx:id="iconColumn" editable="false" prefWidth="75.0" text="Icon" />
+                            <TableColumn fx:id="nameColumn" editable="false" prefWidth="292.0" text="Name" />
+                              <TableColumn fx:id="sizeColumn" editable="false" minWidth="0.0" prefWidth="78.0" text="Size" />
+                              <TableColumn fx:id="dateColumn" editable="false" prefWidth="135.0" text="Modified Date" />
+                          </columns>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Tiles View">
+               <content>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <TilePane fx:id="fileTilesView" hgap="10.0" prefHeight="381.0" prefTileHeight="100.0" prefTileWidth="100.0" prefWidth="574.0" vgap="10.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TilePane>
+                     </content>
+                  </ScrollPane>
+               </content>
+          </Tab>
+        </tabs>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TabPane>
+      <StackPane fx:id="stackPane" layoutX="2.0" layoutY="32.0" prefHeight="431.0" prefWidth="169.0">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <children>
+            <TreeView fx:id="fileTreeView" prefHeight="411.0" prefWidth="164.0">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <StackPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </StackPane.margin>
+            </TreeView>
+         </children>
+      </StackPane>
+      <TextField fx:id="filePath" editable="false" prefHeight="29.0" prefWidth="765.0" stylesheets="@viper.css">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </TextField>
+   </children>
+</Pane>

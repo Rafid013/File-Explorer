@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: F:\BUET\CSE\L3T1\CSE 307 + 308\FileExplorer\src\production
+ \FileExplorer\FileExplorerPackage
+Main-Class: FileExplorerPackage.Main
+
